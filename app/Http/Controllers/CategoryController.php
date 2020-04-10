@@ -10,8 +10,7 @@ class CategoryController extends Controller
 {
     public function show(Category $category)
     {
-        $courses_by_category = Category::with('courses')->get();
-
-        return view('categories.show', compact('courses_by_category'));
+        $courses = $category->courses;
+        return view('categories.show', compact( 'category', 'courses'));
     }
 }

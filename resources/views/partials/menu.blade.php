@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     @foreach($categories as $category)
-                        <a href="">
+                        <a href="{{ route('categories.show', $category->slug)}}">
                             <span class="icon"><i class="fa fa-caret-right"></i></span>
                             <span>{{ $category->title  }}</span>
                         </a>
