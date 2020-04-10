@@ -26,4 +26,31 @@ class Course extends Model
         }
         return $query;
     }
+
+    public function scopeStarCount($query)
+    {
+        $star_count = Request::input('star_count');
+        if ($star_count) {
+            return $query->where('star_count', '>=', $star_count);
+        }
+        return $query;
+    }
+
+    public function scopePriceSearch($query)
+    {
+        $price_search = Request::input('price_search');
+        if ($price_search) {
+            return $query->where('price', '>=', $price_search);
+        }
+        return $query;
+    }
+
+    public function scopeLevelSearch($query)
+    {
+        $level_search = Request::input('level_search');
+        if ($level_search) {
+            return $query->where('level', '>=', $level_search);
+        }
+        return $query;
+    }
 }
