@@ -53,4 +53,14 @@ class Course extends Model
         }
         return $query;
     }
+
+    //セール中かどうか
+    public function scopeIsSale($query)
+    {
+        $is_sale = Request::input('is_sale');
+        if ($is_sale) {
+            return $query->where('is_sale', 1);
+        }
+        return $query;
+    }
 }

@@ -15,6 +15,7 @@ class CategoryController extends Controller
             ->priceSearch()
             ->starCount()
             ->levelSearch()
+            ->isSale()
             ->get();
 
         return view('categories.show', compact('category', 'courses'));

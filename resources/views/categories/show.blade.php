@@ -198,6 +198,16 @@
                             </label>
                         </div>
                         <hr>
+
+                        <div class="form-check mt-1">
+                            <input name="is_sale" class="form-check-input" type="checkbox" value="1"
+                                   id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                セール中
+                            </label>
+                        </div>
+                        <hr>
+
                         <button type="submit" class="btn btn-primary btn-block">検索</button>
                     </form>
                 </div>
@@ -239,8 +249,12 @@
                                             </div>
                                             <div class="course-price-rating">
                                                 <div class="course-price">
-                                                    <span class="current-price">¥{{ $course->price }}</span>
-                                                    <span class="original-price">$300</span>
+                                                    @if($course->is_sale)
+                                                        <span class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
+                                                        <span class="original-price">¥{{ $course->price }}</span>
+                                                    @else
+                                                        <span class="">¥{{ $course->price }}</span>
+                                                    @endif
                                                 </div>
                                                 <div class="rating">
                                                     <i class="fas fa-star filled"></i>
