@@ -3,35 +3,24 @@
         <div class="row">
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-                    <ul class="mobile-header-buttons">
-                        <li><a class="mobile-nav-trigger" href="#mobile-primary-nav">Menu<span></span></a></li>
-                        <li><a class="mobile-search-trigger" href="#mobile-search">Search<span></span></a></li>
-                    </ul>
-
                     <a class="navbar-brand" href="/">
                         Udemy
                     </a>
-
-{{--                    @include('partials.menu')--}}
+                    {{--                    @include('partials.menu')--}}
 
                     <form class="inline-form" action=""
-                          method="post" style="width: 100%;">
+                          method="get" style="width: 100%;">
                         <div class="input-group search-box mobile-search">
-                            <input type="text" name='search_string' class="form-control"
-                                   placeholder="Search for courses">
+                            <input type="text" name='search_course' class="form-control"
+                                   placeholder="コースを検索できます">
                             <div class="input-group-append">
                                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </form>
 
-                    <div class="wishlist-box menu-icon-box" id="wishlist_items">
-                        {{--Wishlist will be here--}}
-                    </div>
-
                     <div class="cart-box menu-icon-box" id="cart_items">
-{{--                        @include('partials.cart')--}}
+                        {{--                        @include('partials.cart')--}}
                     </div>
 
                     @auth
@@ -54,7 +43,7 @@
                                                 <div class="user-details">
                                                     <div class="user-name">
                                                         <span class="hi">hi,</span>
-<!--                                                        --><?php //echo auth()->user()->first_name . ' ' . auth()->user()->last_name ?>
+                                                        {{ Auth::user()->name }}
                                                     </div>
                                                     <div class="user-email">
                                                         <span class="email">{{ auth()->user()->email }}</span>
@@ -67,22 +56,22 @@
 
                                     <li class="user-dropdown-menu-item">
                                         <a href="">
-                                            <i class="far fa-gem"></i>My Course
+                                            <i class="far fa-gem"></i>マイコース
                                         </a>
                                     </li>
                                     <li class="user-dropdown-menu-item">
                                         <a href="">
-                                            <i class="far fa-heart"></i>My Wishlist
+                                            <i class="far fa-heart"></i>お気に入りリスト
                                         </a>
                                     </li>
                                     <li class="user-dropdown-menu-item">
                                         <a href="">
-                                            <i class="fas fa-user"></i>User profile
+                                            <i class="fas fa-user"></i>プロフィール
                                         </a>
                                     </li>
                                     <li class="dropdown-user-logout user-dropdown-menu-item">
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                                     document.getElementById('logout-form').submit();">ログアウト</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">

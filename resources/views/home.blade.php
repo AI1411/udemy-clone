@@ -9,10 +9,10 @@
                         <h2>Best place for learning</h2>
                         <p>Learn from any topic, choose from category</p>
                         <form class="" action=""
-                              method="post">
+                              method="get">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search_string"
-                                       placeholder="what do you want to learn?">
+                                <input type="text" class="form-control" name="search_course"
+                                       placeholder="お好きなコースを検索できます">
                                 <div class="input-group-append">
                                     <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                                 </div>
@@ -110,9 +110,6 @@
                                             <span class=""><i class="far fa-clock"></i>
                                             2 Hours
                                         </span>
-                                            <span class="">
-                                            <i class="fas fa-closed-captioning"></i>English
-                                        </span>
                                         </div>
                                         <div class="course-subtitle">{{ $course->short_description }}</div>
                                         <div class="what-will-learn">
@@ -120,30 +117,30 @@
                                                 {{ $course->outcomes }}
                                             </ul>
                                         </div>
-{{--                                        <div class="popover-btns">--}}
-{{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
-{{--                                                <div class="purchased">--}}
-{{--                                                    <a href="#">Already purchased</a>--}}
-{{--                                                </div>--}}
-{{--                                            @elseif(Cart::get($course->id) !== null)--}}
-{{--                                                <button type="button"--}}
-{{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
-{{--                                                        id="1">--}}
-{{--                                                    Added To Cart--}}
-{{--                                                </button>--}}
-{{--                                            @else--}}
-{{--                                                <button type="button"--}}
-{{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
-{{--                                                        id="1">--}}
-{{--                                                    Add To Cart--}}
-{{--                                                </button>--}}
-{{--                                            @endif--}}
-{{--                                            <button type="button"--}}
-{{--                                                    class="wishlist-btn"--}}
-{{--                                                    title="Add to wishlist"--}}
-{{--                                                    id="1"><i class="fas fa-heart"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="popover-btns">--}}
+                                        {{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
+                                        {{--                                                <div class="purchased">--}}
+                                        {{--                                                    <a href="#">Already purchased</a>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                            @elseif(Cart::get($course->id) !== null)--}}
+                                        {{--                                                <button type="button"--}}
+                                        {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
+                                        {{--                                                        id="1">--}}
+                                        {{--                                                    Added To Cart--}}
+                                        {{--                                                </button>--}}
+                                        {{--                                            @else--}}
+                                        {{--                                                <button type="button"--}}
+                                        {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
+                                        {{--                                                        id="1">--}}
+                                        {{--                                                    Add To Cart--}}
+                                        {{--                                                </button>--}}
+                                        {{--                                            @endif--}}
+                                        {{--                                            <button type="button"--}}
+                                        {{--                                                    class="wishlist-btn"--}}
+                                        {{--                                                    title="Add to wishlist"--}}
+                                        {{--                                                    id="1"><i class="fas fa-heart"></i>--}}
+                                        {{--                                            </button>--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
