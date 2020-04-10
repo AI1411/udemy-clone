@@ -18,6 +18,16 @@ class Course extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
     public function scopeSearchCourse($query)
     {
         $search_keyword = Request::input('search_course');
