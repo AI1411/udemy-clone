@@ -6,8 +6,7 @@
                     <a class="navbar-brand" href="/">
                         Udemy
                     </a>
-                    {{--                    @include('partials.menu')--}}
-
+                    @include('partials.menu')
                     <form class="inline-form" action=""
                           method="get" style="width: 100%;">
                         <div class="input-group search-box mobile-search">

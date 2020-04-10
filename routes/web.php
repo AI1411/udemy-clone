@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//コース一覧
 Route::get('/', 'CourseController@index')->name('home');
+
+//カテゴリ別コース一覧
+Route::get('category/{category}', 'CategoryController@show')->name('categories.show');
