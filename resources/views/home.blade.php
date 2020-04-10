@@ -79,6 +79,9 @@
                                             <h5 class="title">{{ $course->title }}</h5>
                                             <p class="instructors">{{ $course->short_description }}</p>
                                             <div class="rating">
+                                                     <span class="d-inline-block average-rating" style="color: red">
+                                                        {{ $course->reviews->count() > 0 ? round($course->reviews->avg('star'), 1) : 0 }}
+                                                    </span>
                                                 <i class="fas fa-star filled"></i>
                                                 <i class="fas fa-star filled"></i>
                                                 <i class="fas fa-star filled"></i>

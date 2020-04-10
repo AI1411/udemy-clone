@@ -13,6 +13,7 @@ $factory->define(Review::class, function (Faker $faker) {
     return [
         'title' => $faker->text,
         'body' => $faker->sentence(5),
+        'star' => random_int(1, 5),
         'user_id' => random_int(1, $user_count),
         'course_id' => random_int(1,$course_count)
     ];

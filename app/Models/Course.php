@@ -73,4 +73,9 @@ class Course extends Model
         }
         return $query;
     }
+
+    public function setLessonCountAttribute()
+    {
+        $this->attributes['lesson_count'] = $this->lessons->count();
+    }
 }

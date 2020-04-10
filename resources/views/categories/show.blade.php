@@ -236,7 +236,7 @@
                                                 <div class="course-meta">
                                                 <span class="">
                                                     <i class="fas fa-play-circle"></i>
-                                                    110 Lessons
+                                                    {{ $course->lessons->count() }} Lessons
                                                 </span>
                                                     <span class="">
                                                     <i class="far fa-clock"></i>
@@ -250,21 +250,23 @@
                                             <div class="course-price-rating">
                                                 <div class="course-price">
                                                     @if($course->is_sale)
-                                                        <span class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
+                                                        <span
+                                                            class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
                                                         <span class="original-price">¥{{ $course->price }}</span>
                                                     @else
                                                         <span class="">¥{{ $course->price }}</span>
                                                     @endif
                                                 </div>
                                                 <div class="rating">
+                                                     <span class="d-inline-block average-rating" style="color: red">
+                                                        {{ $course->reviews->count() > 0 ? round($course->reviews->avg('star'),1) : 0 }}
+                                                    </span>
                                                     <i class="fas fa-star filled"></i>
                                                     <i class="fas fa-star filled"></i>
                                                     <i class="fas fa-star filled"></i>
                                                     <i class="fas fa-star"></i>
-                                                    <span class="d-inline-block average-rating">5</span>
-                                                </div>
-                                                <div class="rating-number">
-                                                    5 Ratings
+                                                    ({{ $course->reviews->count() > 0 ? $course->reviews->count() : 0 }}
+                                                    )
                                                 </div>
                                             </div>
                                         </div>
