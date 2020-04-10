@@ -31,7 +31,7 @@
                     <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                         <i class="fas fa-bullseye float-left"></i>
                         <div class="text-box">
-                            <h4>10 online_courses</h4>
+                            <h4>{{ $courses->count() }} online_courses</h4>
                             <p>Explore A Variety Of Fresh Topics</p>
                         </div>
                     </div>
@@ -98,11 +98,11 @@
                                         <div class="course-title">
                                             <a href="">{{ $course->title }}</a>
                                         </div>
-                                        <!-- <div class="course-category">
+                                        <div class="course-category">
                                             <span class="course-badge best-seller">Best seller</span>
                                             in
                                             <a href="">PHP</a>
-                                        </div> -->
+                                        </div>
                                         <div class="course-meta">
                                         <span class=""><i class="fas fa-play-circle"></i>
                                              Lessons

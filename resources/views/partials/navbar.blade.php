@@ -66,8 +66,8 @@
                                     </li>
 
                                     <li class="user-dropdown-menu-item">
-                                        <a href="{{ route('user.courses') }}">
-                                            <i class="far fa-gem"></i>My Courses
+                                        <a href="">
+                                            <i class="far fa-gem"></i>My Course
                                         </a>
                                     </li>
                                     <li class="user-dropdown-menu-item">
@@ -76,9 +76,9 @@
                                         </a>
                                     </li>
                                     <li class="user-dropdown-menu-item">
-{{--                                        <a href="{{ route('user.profile') }}">--}}
-{{--                                            <i class="fas fa-user"></i>User profile--}}
-{{--                                        </a>--}}
+                                        <a href="">
+                                            <i class="fas fa-user"></i>User profile
+                                        </a>
                                     </li>
                                     <li class="dropdown-user-logout user-dropdown-menu-item">
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();

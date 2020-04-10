@@ -73,13 +73,8 @@
                     @csrf
                     <div class="input-group">
                         <span class="input-field-icon"><i class="fas fa-user"></i></span>
-                        <input type="text" name="first_name" class="form-control"
-                               placeholder="first name">
-                    </div>
-                    <div class="input-group">
-                        <span class="input-field-icon"><i class="fas fa-user"></i></span>
-                        <input type="text" name="last_name" class="form-control"
-                               placeholder="last name">
+                        <input type="text" name="name" class="form-control"
+                               placeholder="name">
                     </div>
                     <div class="input-group">
                         <span class="input-field-icon"><i class="fas fa-envelope"></i></span>
