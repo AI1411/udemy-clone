@@ -9,7 +9,6 @@ use Faker\Generator as Faker;
 $factory->define(Course::class, function (Faker $faker) {
     $categories_count = Category::all()->count();
     return [
-        'id' => $faker->uuid,
         'title' => $faker->sentence(4),
         'short_description' => $faker->realText(100),
         'description' => $faker->realText(),

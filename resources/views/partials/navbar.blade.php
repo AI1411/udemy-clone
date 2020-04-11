@@ -19,9 +19,8 @@
                     </form>
 
                     <div class="cart-box menu-icon-box" id="cart_items">
-                        {{--                        @include('partials.cart')--}}
+                        @include('partials.cart')
                     </div>
-
                     @auth
                         <div class="user-box menu-icon-box">
                             <div class="icon">
@@ -31,7 +30,6 @@
                             </div>
                             <div class="dropdown user-dropdown corner-triangle top-right">
                                 <ul class="user-dropdown-menu">
-
                                     <li class="dropdown-user-info">
                                         <a href="">
                                             <div class="clearfix">

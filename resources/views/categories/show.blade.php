@@ -219,7 +219,7 @@
                                     <li>
                                         <div class="course-box-2">
                                             <div class="course-image">
-                                                <a href="">
+                                                <a href="{{ route('courses.show', $course->id) }}">
                                                     <img src="{{ asset('images/learning.jpg') }}" alt=""
                                                          class="img-fluid">
                                                 </a>

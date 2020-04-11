@@ -7,12 +7,6 @@ use Illuminate\Support\Facades\Request;
 
 class Course extends Model
 {
-    protected $primaryKey = 'id';
-
-    public $incrementing = false;
-
-    protected $keyType = 'string';
-
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -26,6 +20,11 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
     }
 
     public function scopeSearchCourse($query)

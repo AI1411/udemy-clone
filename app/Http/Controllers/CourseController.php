@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Course;
 
 class CourseController extends Controller
@@ -11,5 +12,10 @@ class CourseController extends Controller
         $courses = Course::searchCourse()->get();
 
         return view('home', compact('courses'));
+    }
+
+    public function show(Course $course)
+    {
+        return view('courses.show', compact('course'));
     }
 }

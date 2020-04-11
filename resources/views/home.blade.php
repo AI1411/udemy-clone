@@ -62,6 +62,7 @@
 
     <section class="course-carousel-area">
         <div class="container-lg">
+            @include('layouts.message')
             <div class="row">
                 <div class="col">
                     <h2 class="course-carousel-title">Top Courses</h2>
@@ -88,9 +89,15 @@
                                                 <i class="fas fa-star"></i>
                                                 <span class="d-inline-block average-rating">5</span>
                                             </div>
-                                            <p class="price text-right">
-                                                ${{ $course->price }}
-                                            </p>
+                                            <div class="course-price">
+                                                @if($course->is_sale)
+                                                    <span
+                                                        class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
+                                                    <span class="original-price">¥{{ $course->price }}</span>
+                                                @else
+                                                    <span class="">¥{{ $course->price }}</span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
@@ -120,30 +127,43 @@
                                                 {{ $course->outcomes }}
                                             </ul>
                                         </div>
-                                        {{--                                        <div class="popover-btns">--}}
-                                        {{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
-                                        {{--                                                <div class="purchased">--}}
-                                        {{--                                                    <a href="#">Already purchased</a>--}}
-                                        {{--                                                </div>--}}
-                                        {{--                                            @elseif(Cart::get($course->id) !== null)--}}
-                                        {{--                                                <button type="button"--}}
-                                        {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
-                                        {{--                                                        id="1">--}}
-                                        {{--                                                    Added To Cart--}}
-                                        {{--                                                </button>--}}
-                                        {{--                                            @else--}}
-                                        {{--                                                <button type="button"--}}
-                                        {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
-                                        {{--                                                        id="1">--}}
-                                        {{--                                                    Add To Cart--}}
-                                        {{--                                                </button>--}}
-                                        {{--                                            @endif--}}
-                                        {{--                                            <button type="button"--}}
-                                        {{--                                                    class="wishlist-btn"--}}
-                                        {{--                                                    title="Add to wishlist"--}}
-                                        {{--                                                    id="1"><i class="fas fa-heart"></i>--}}
-                                        {{--                                            </button>--}}
-                                        {{--                                        </div>--}}
+                                        <div class="popover-btns">
+                                            {{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
+                                            {{--                                                <div class="purchased">--}}
+                                            {{--                                                    <a href="#">Already purchased</a>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            @elseif(Cart::get($course->id) !== null)--}}
+                                            {{--                                                <button type="button"--}}
+                                            {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
+                                            {{--                                                        id="1">--}}
+                                            {{--                                                    Added To Cart--}}
+                                            {{--                                                </button>--}}
+                                            {{--                                            @else--}}
+                                            @auth
+                                                <form action="{{ route('addCart', $course->id) }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                    <input type="hidden" name="user_id"
+                                                           value="{{ auth()->user()->id }}">
+                                                    <input type="hidden" name="title" value="{{ $course->title }}">
+                                                    <input type="hidden" name="price" value="{{ $course->price }}">
+                                                    <button type="submit"
+                                                            class="btn add-to-cart-btn addedToCart big-cart-button-1"
+                                                            id="1">
+                                                        Add To Cart
+                                                    </button>
+                                                </form>
+                                                <form action="" method="post">
+                                                    @csrf
+                                                    <button type="button"
+                                                            class="wishlist-btn"
+                                                            title="Add to wishlist"
+                                                            id="1"><i class="fas fa-heart"></i>
+                                                    </button>
+                                                </form>
+                                                {{--                                            @endif--}}
+                                            @endauth
+                                        </div>
                                     </div>
                                 </div>
                             </div>
