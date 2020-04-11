@@ -17,10 +17,14 @@
                             <div class="item-details">
                                 <a href="">
                                     <div class="course-name">{{ $cart->title }}</div>
-                                    <div class="instructor-name">first_name last_name</div>
                                     <div class="item-price">
-                                        <span class="current-price">${{ $cart->price }}</span>
-                                        <span class="original-price">$300</span>
+                                        @if($course->is_sale)
+                                            <span
+                                                class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
+                                            <span class="original-price">¥{{ $course->price }}</span>
+                                        @else
+                                            <span class="">¥{{ $course->price }}</span>
+                                        @endif
                                     </div>
                                 </a>
                             </div>
@@ -33,7 +37,7 @@
             <div class="cart-total-price clearfix">
                 <span>Total:</span>
                 <div class="float-right">
-{{--                    <span class="current-price">${{ Cart::getTotal() }}</span>--}}
+                    <span class="current-price">¥{{ $total_price }}</span>
                 </div>
             </div>
 {{--            <a href="{{ route('carts.all') }}">Go to cart</a>--}}

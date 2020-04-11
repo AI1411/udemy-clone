@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Request;
 
 class Course extends Model
 {
+    protected $with = ['reviews', 'lessons'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

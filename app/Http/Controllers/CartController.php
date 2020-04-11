@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        return view('carts.index', compact('carts'));
+    }
+
     public function addCart(Request $request)
     {
         $cart = new Cart();
