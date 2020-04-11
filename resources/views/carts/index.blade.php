@@ -13,23 +13,23 @@
                                     <i class="fas fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Shopping Cart</a></li>
+                            <li class="breadcrumb-item"><a href="#">ショッピングカート</a></li>
                         </ol>
                     </nav>
-                    <h1 class="page-title">Shopping Cart</h1>
+                    <h1 class="page-title">ショッピングカート</h1>
                 </div>
             </div>
         </div>
     </section>
 
-
     <section class="cart-list-area">
         <div class="container">
             @if($carts->count() > 0)
+                @include('layouts.message')
                 <div class="row" id="cart_items_details">
                     <div class="col-lg-9">
                         <div class="in-cart-box">
-                            <div class="title">{{ $carts->count() }} courses in cart</div>
+                            <div class="title">カートの中に{{ $carts->count() }}個のコースがあります</div>
                             <div class="">
                                 <ul class="cart-course-list">
                                     @foreach ($carts as $cart)
@@ -48,9 +48,10 @@
                                                 </div>
                                                 <div class="move-remove">
                                                     <div>
-                                                        <form action=""
+                                                        <form action="{{ route('removeFromCart', $cart->id) }}"
                                                               method="post">
                                                             @csrf
+                                                            @method('DELETE')
                                                             <input type="hidden" value="{{ $cart->id }}">
                                                             <input type="submit" class="btn-success" value="Remove">
                                                         </form>
@@ -60,7 +61,7 @@
                                                 <div class="price">
                                                     <a href="">
                                                         <div class="current-price">
-                                                            {{ $cart->price }}
+                                                            ¥{{ $cart->price }}
                                                         </div>
                                                         <span class="coupon-tag">
                                                         <i class="fas fa-tag"></i>
@@ -76,18 +77,18 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="cart-sidebar">
-                            <div class="total">Total:</div>
+                            <div class="total">合計:</div>
                             <div class="total-price">
-                                $<span id="total_price_of_checking_out">{{ $total_price }}</span>
+                                ¥<span id="total_price_of_checking_out">{{ $total_price }}</span>
                             </div>
                             <button type="button" class="btn btn-primary btn-block checkout-btn"
-                                    onclick="handleCheckOut()">Checkout
+                                    onclick="handleCheckOut()">チェックアウト
                             </button>
                         </div>
                     </div>
                 </div>
             @else
-                <div class="title">Cart is empty</div>
+                <div class="title">カートは空です</div>
             @endif
         </div>
     </section>

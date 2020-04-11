@@ -34,9 +34,15 @@ class CartController extends Controller
                 return redirect()->back()->with('error', 'すでにカートに追加しています');
             }
         }
-
         $cart->save();
 
         return redirect()->back()->with('success', 'カートに追加しました');
+    }
+
+    public function removeFromCart(Cart $cart)
+    {
+        $cart->delete();
+
+        return redirect()->back()->with('success', 'カートから削除しました');
     }
 }

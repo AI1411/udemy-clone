@@ -138,17 +138,6 @@
                                             </div>
                                         </div>
                                         <div class="popover-btns">
-                                            {{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
-                                            {{--                                                <div class="purchased">--}}
-                                            {{--                                                    <a href="#">Already purchased</a>--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            @elseif(Cart::get($course->id) !== null)--}}
-                                            {{--                                                <button type="button"--}}
-                                            {{--                                                        class="btn add-to-cart-btn addedToCart big-cart-button-1"--}}
-                                            {{--                                                        id="1">--}}
-                                            {{--                                                    Added To Cart--}}
-                                            {{--                                                </button>--}}
-                                            {{--                                            @else--}}
                                             @auth
                                                 <form action="{{ route('addCart', $course->id) }}" method="post">
                                                     @csrf
@@ -172,7 +161,6 @@
                                                             id="1"><i class="fas fa-heart"></i>
                                                     </button>
                                                 </form>
-                                                {{--                                            @endif--}}
                                             @endauth
                                         </div>
                                     </div>
