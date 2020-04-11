@@ -29,3 +29,4 @@ Route::get('category/{category}', 'CategoryController@show')->name('categories.s
 
 //cartに追加
 Route::post('/addCart', 'CartController@addCart')->name('addCart');
+Route::get('/carts', 'CartController@index')->name('carts.index');

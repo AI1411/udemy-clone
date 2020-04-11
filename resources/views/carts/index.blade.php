@@ -28,29 +28,27 @@
             @if($carts->count() > 0)
                 <div class="row" id="cart_items_details">
                     <div class="col-lg-9">
-
-
                         <div class="in-cart-box">
-                            <div class="title">{{ Cart::getTotal() }} courses in cart</div>
+                            <div class="title">{{ $carts->count() }} courses in cart</div>
                             <div class="">
                                 <ul class="cart-course-list">
                                     @foreach ($carts as $cart)
                                         <li>
                                             <div class="cart-course-wrapper">
                                                 <div class="image">
-                                                    <a href="{{ route('course_detail', $cart->id) }}">
+                                                    <a href="{{ route('courses.show', $cart->id) }}">
                                                         <img src="{{ asset('images/learning.jpg') }}" alt=""
                                                              class="img-fluid">
                                                     </a>
                                                 </div>
                                                 <div class="details">
                                                     <a href="">
-                                                        <div class="name">{{ $cart->name }}</div>
+                                                        <div class="name">{{ $cart->title }}</div>
                                                     </a>
                                                 </div>
                                                 <div class="move-remove">
                                                     <div>
-                                                        <form action="{{ route('cart.remove', $cart->id) }}"
+                                                        <form action=""
                                                               method="post">
                                                             @csrf
                                                             <input type="hidden" value="{{ $cart->id }}">
@@ -75,13 +73,12 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-lg-3">
                         <div class="cart-sidebar">
                             <div class="total">Total:</div>
                             <div class="total-price">
-                                $<span id="total_price_of_checking_out">{{ Cart::getTotal() }}</span>
+                                $<span id="total_price_of_checking_out">{{ $total_price }}</span>
                             </div>
                             <button type="button" class="btn btn-primary btn-block checkout-btn"
                                     onclick="handleCheckOut()">Checkout

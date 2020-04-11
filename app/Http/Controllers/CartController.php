@@ -10,7 +10,6 @@ class CartController extends Controller
 {
     public function index()
     {
-        dd(Auth::id());
         return view('carts.index');
     }
 
@@ -18,7 +17,15 @@ class CartController extends Controller
     {
         $cart = new Cart();
         $cart->title = $request->title;
-        $cart->price = $request->price;
+        $cart->is_sale = $request->is_sale;
+        if ($cart->is_sale) {
+            if ($cart->price * 0.1 <= 1200) {
+                $cart->price = 1200;
+            }
+            $cart->price = $request->price * 0.1;
+        } else {
+            $cart->price = $request->price;
+        }
         $cart->course_id = $request->course_id;
         $cart->user_id = $request->user_id;
 

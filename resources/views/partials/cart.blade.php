@@ -18,10 +18,9 @@
                                 <a href="">
                                     <div class="course-name">{{ $cart->title }}</div>
                                     <div class="item-price">
-                                        @if($course->is_sale)
+                                        @if($cart->is_sale)
                                             <span
-                                                class="current-price">¥{{ $cart->price * 0.1 <= 1200 ? 1200 : $cart->price * 0.1 }}</span>
-                                            <span class="original-price">¥{{ $cart->price }}</span>
+                                                class="current-price">¥{{ $cart->price }}</span>
                                         @else
                                             <span class="">¥{{ $cart->price }}</span>
                                         @endif
@@ -40,7 +39,7 @@
                     <span class="current-price">¥{{ $total_price }}</span>
                 </div>
             </div>
-{{--            <a href="{{ route('carts.all') }}">Go to cart</a>--}}
+            <a href="{{ route('carts.index') }}">Go to cart</a>
         </div>
     </div>
     <div class="empty-box text-center d-none">

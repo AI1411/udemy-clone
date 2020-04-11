@@ -127,6 +127,16 @@
                                                 {{ $course->outcomes }}
                                             </ul>
                                         </div>
+                                        <div class="course-price-rating">
+                                            <div class="course-price">
+                                                @if($course->is_sale)
+                                                    <span
+                                                        class="current-price" style="color: red">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
+                                                @else
+                                                    <span class="">¥{{ $course->price }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
                                         <div class="popover-btns">
                                             {{--                                            @if(auth()->check() && \App\Enroll::whereCourseId($course->id)->first() !== null)--}}
                                             {{--                                                <div class="purchased">--}}
@@ -147,6 +157,7 @@
                                                            value="{{ auth()->user()->id }}">
                                                     <input type="hidden" name="title" value="{{ $course->title }}">
                                                     <input type="hidden" name="price" value="{{ $course->price }}">
+                                                    <input type="hidden" name="is_sale" value="{{ $course->is_sale }}">
                                                     <button type="submit"
                                                             class="btn add-to-cart-btn addedToCart big-cart-button-1"
                                                             id="1">
