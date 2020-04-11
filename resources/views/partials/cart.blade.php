@@ -20,10 +20,10 @@
                                     <div class="item-price">
                                         @if($course->is_sale)
                                             <span
-                                                class="current-price">¥{{ $course->price * 0.1 <= 1200 ? 1200 : $course->price * 0.1 }}</span>
-                                            <span class="original-price">¥{{ $course->price }}</span>
+                                                class="current-price">¥{{ $cart->price * 0.1 <= 1200 ? 1200 : $cart->price * 0.1 }}</span>
+                                            <span class="original-price">¥{{ $cart->price }}</span>
                                         @else
-                                            <span class="">¥{{ $course->price }}</span>
+                                            <span class="">¥{{ $cart->price }}</span>
                                         @endif
                                     </div>
                                 </a>

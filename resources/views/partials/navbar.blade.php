@@ -18,9 +18,11 @@
                         </div>
                     </form>
 
-                    <div class="cart-box menu-icon-box" id="cart_items">
-                        @include('partials.cart')
-                    </div>
+                    @auth
+                        <div class="cart-box menu-icon-box" id="cart_items">
+                            @include('partials.cart')
+                        </div>
+                    @endauth
                     @auth
                         <div class="user-box menu-icon-box">
                             <div class="icon">

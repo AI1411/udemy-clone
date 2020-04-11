@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//Route::get('/', function () {
+//    return view('home');
+//});
+
 //コース一覧
-Route::get('/', 'CourseController@index')->name('home');
+Route::get('/', 'CourseController@index')->name('courses.index');
 
 Route::get('/courses/{course}', 'CourseController@show')->name('courses.show');
 
