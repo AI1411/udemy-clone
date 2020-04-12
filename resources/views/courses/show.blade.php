@@ -241,7 +241,7 @@
                                                             {{ $review->created_at }}
                                                         </div>
                                                         <div class="reviewer-name">
-{{--                                                            {{ $review->user->name }}--}}
+                                                            {{--                                                            {{ $review->user->name }}--}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -286,31 +286,17 @@
                                     ¥<span class="current-price">{{ $course->price }}</span></span>
                                 <input type="hidden" id="total_price_of_checking_out" value="{{ $course->price }}">
                             </div>
-
-                            {{--<div class="buy-btns">--}}
-                            {{--<button class="btn btn-buy-now" type="button">Already purchased</button>--}}
-                            {{--</div>--}}
                             <div class="buy-btns">
-{{--                                @if(Cart::get($course->id))--}}
-{{--                                    <a href="" class="btn btn-buy-now" id="course_2" onclick="handleBuyNow(this)">Buy--}}
-{{--                                        now</a>--}}
-{{--                                    <button class="btn btn-add-cart addedToCart" type="button" id="{{ $course->id }}"--}}
-{{--                                            onclick="handleCartItems(this)">Added to cart--}}
-{{--                                    </button>--}}
-{{--                                @else--}}
-{{--                                    <form action="" method="post">--}}
-{{--                                        @csrf--}}
-
-{{--                                        <input type="hidden" value="{{ $course->id }}" name="course_id">--}}
-{{--                                        <input type="hidden" value="{{ $course->title }}" name="name">--}}
-{{--                                        <input type="hidden" value="{{ $course->price }}" name="price">--}}
-{{--                                        <input type="hidden" value="1" name="quantity">--}}
-
-{{--                                        <button class="btn btn-add-cart" type="submit" id="{{ $course->id }}">Add to--}}
-{{--                                            cart--}}
-{{--                                        </button>--}}
-{{--                                    </form>--}}
-{{--                                @endif--}}
+                                <form action="{{ route('addCart', $course->id) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="{{ $course->id }}" name="course_id">
+                                    <input type="hidden" value="{{ $course->title }}" name="name">
+                                    <input type="hidden" value="{{ $course->price }}" name="price">
+                                    <input type="hidden" value="1" name="quantity">
+                                    <button class="btn btn-add-cart" {{ $is_added_disable }} type="submit" id="{{ $course->id }}">
+                                        {{ $is_cart }}
+                                    </button>
+                                </form>
                             </div>
 
                             <div class="includes">

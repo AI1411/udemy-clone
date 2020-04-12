@@ -38,5 +38,8 @@ Route::middleware(['auth'])->group(function () {
 
     //チェックアウト
     Route::post('/checkout', 'MyCourseController@checkout')->name('checkout');
+
+    //マイコース
+    Route::get('/myCourses', 'MYCourseController@index')->name('myCourses.index');
 });
 

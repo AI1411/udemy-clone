@@ -54,7 +54,7 @@
                                     </li>
 
                                     <li class="user-dropdown-menu-item">
-                                        <a href="">
+                                        <a href="{{ route('myCourses.index') }}">
                                             <i class="far fa-gem"></i>マイコース
                                         </a>
                                     </li>
