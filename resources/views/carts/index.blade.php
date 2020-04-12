@@ -81,9 +81,11 @@
                             <div class="total-price">
                                 ¥<span id="total_price_of_checking_out">{{ $total_price }}</span>
                             </div>
-                            <button type="button" class="btn btn-primary btn-block checkout-btn"
-                                    onclick="handleCheckOut()">チェックアウト
-                            </button>
+                            <form action="">
+                                <button type="button" class="btn btn-primary btn-block checkout-btn"
+                                        onclick="handleCheckOut()">チェックアウト
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

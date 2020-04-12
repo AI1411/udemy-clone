@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-//Route::get('/', function () {
-//    return view('home');
-//});
+Route::get('auth/check', 'HomeController@checkAuth');
 
 //コース一覧
 Route::get('/', 'CourseController@index')->name('courses.index');

@@ -112,3 +112,38 @@
         </div>
     </div>
 </div><!-- Modal -->
+
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content payment-in-modal">
+            <div class="modal-header">
+                <h5 class="modal-title">支払い方法を選んでください!</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="" method="post">
+                            <input type="hidden" class="total_price_of_checking_out" name="total_price_of_checking_out"
+                                   value="">
+                            <button type="submit" class="btn btn-default paypal">
+                                Paypal
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="" method="post">
+                            <input type="hidden" class="total_price_of_checking_out" name="total_price_of_checking_out"
+                                   value="">
+                            <button type="submit" class="btn btn-primary cash">
+                                着払い
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

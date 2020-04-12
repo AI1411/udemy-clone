@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function checkAuth()
+    {
+        $isLoggedIn = auth()->check() ? true : false;
+
+        return response()->json(['success' => $isLoggedIn]);
+    }
 }
