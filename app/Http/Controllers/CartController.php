@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +35,15 @@ class CartController extends Controller
                 return redirect()->back()->with('error', 'すでにカートに追加しています');
             }
         }
+
+        if ($request->input('cartFromFavorite') == 1) {
+            $favorite = Favorite::find($request->favorite_id);
+            $favorite->delete();
+            $cart->save();
+
+            return redirect()->back()->with('success', 'お気に入りからカートに追加しました');
+        }
+
         $cart->save();
 
         return redirect()->back()->with('success', 'カートに追加しました');

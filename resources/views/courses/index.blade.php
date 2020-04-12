@@ -153,9 +153,15 @@
                                                         Add To Cart
                                                     </button>
                                                 </form>
-                                                <form action="" method="post">
+                                                <form action="{{ route('favorites.addFavorite', $course->id) }}" method="post">
                                                     @csrf
-                                                    <button type="button"
+                                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                    <input type="hidden" name="user_id"
+                                                           value="{{ auth()->user()->id }}">
+                                                    <input type="hidden" name="title" value="{{ $course->title }}">
+                                                    <input type="hidden" name="price" value="{{ $course->price }}">
+                                                    <input type="hidden" name="is_sale" value="{{ $course->is_sale }}">
+                                                    <button type="submit"
                                                             class="wishlist-btn"
                                                             title="Add to wishlist"
                                                             id="1"><i class="fas fa-heart"></i>

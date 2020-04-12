@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Request;
 
 class Course extends Model
 {
-    protected $with = ['reviews', 'lessons'];
+    protected $with = ['reviews', 'lessons', 'category'];
 
     public function category()
     {
@@ -75,8 +75,13 @@ class Course extends Model
         return $query;
     }
 
-    public function setLessonCountAttribute()
+    public function getStarCountAttribute()
     {
-        $this->attributes['lesson_count'] = $this->lessons->count();
+        return $this->attributes['star_count'] = $this->reviews->avg('star');
+    }
+
+    public function getLessonCountAttribute()
+    {
+        return $this->attributes['lesson_count'] = $this->lessons->count();
     }
 }

@@ -59,7 +59,7 @@
                                         </a>
                                     </li>
                                     <li class="user-dropdown-menu-item">
-                                        <a href="">
+                                        <a href="{{ route('favorites.index') }}">
                                             <i class="far fa-heart"></i>お気に入りリスト
                                         </a>
                                     </li>

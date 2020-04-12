@@ -236,7 +236,7 @@
                                                 <div class="course-meta">
                                                 <span class="">
                                                     <i class="fas fa-play-circle"></i>
-                                                    {{ $course->lessons->count() }} Lessons
+                                                    {{ $course->lesson_count }} Lessons
                                                 </span>
                                                     <span class="">
                                                     <i class="far fa-clock"></i>
@@ -258,7 +258,7 @@
                                                 </div>
                                                 <div class="rating">
                                                      <span class="d-inline-block average-rating" style="color: red">
-                                                        {{ $course->reviews->count() > 0 ? round($course->reviews->avg('star'),1) : 0 }}
+                                                        {{ $course->reviews->count() > 0 ? round($course->star_count,1) : 0 }}
                                                     </span>
                                                     <i class="fas fa-star filled"></i>
                                                     <i class="fas fa-star filled"></i>

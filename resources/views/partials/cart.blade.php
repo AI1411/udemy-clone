@@ -1,6 +1,6 @@
 <div class="icon">
     <a href=""><i class="fas fa-shopping-cart"></i></a>
-    {{--    <span class="number">{{ Cart::getContent()->count() }}</span>--}}
+        <span class="number">{{ $carts->count() }}</span>
 </div>
 <div class="dropdown course-list-dropdown corner-triangle top-right">
     <div class="list-wrapper">
