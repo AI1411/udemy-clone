@@ -125,7 +125,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="post">
+                        <form action="{{ route('checkout') }}" method="post">
+                            @csrf
                             <input type="hidden" class="total_price_of_checking_out" name="total_price_of_checking_out"
                                    value="">
                             <button type="submit" class="btn btn-default paypal">

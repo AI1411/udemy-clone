@@ -93,7 +93,6 @@
                             <button type="button" class="btn btn-sign-up" data-toggle="modal"
                                     data-target="#signUpModal">Sign up
                             </button>
-
                         </div>
                     @endguest
 
