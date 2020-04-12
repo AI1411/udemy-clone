@@ -53,7 +53,7 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <input type="hidden" value="{{ $cart->id }}">
-                                                            <input type="submit" class="btn-success" value="Remove">
+                                                            <input type="submit" class="btn-success" value="Remove" onclick="return confirm('カートから削除してもよろしいですか?')">
                                                         </form>
                                                     </div>
                                                     <!-- <div>Move to Wishlist</div> -->

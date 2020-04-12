@@ -47,6 +47,7 @@
 
     <section class="course-content-area">
         <div class="container">
+            @include('layouts.message')
             <div class="row">
                 <div class="col-lg-8">
 
@@ -290,10 +291,12 @@
                                 <form action="{{ route('addCart', $course->id) }}" method="post">
                                     @csrf
                                     <input type="hidden" value="{{ $course->id }}" name="course_id">
-                                    <input type="hidden" value="{{ $course->title }}" name="name">
+                                    <input type="hidden" value="{{ $course->is_sale }}" name="is_sale">
+                                    <input type="hidden" value="{{ $course->title }}" name="title">
                                     <input type="hidden" value="{{ $course->price }}" name="price">
+                                    <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
                                     <input type="hidden" value="1" name="quantity">
-                                    <button class="btn btn-add-cart" {{ $is_added_disable }} type="submit" id="{{ $course->id }}">
+                                    <button class="btn btn-add-cart" {{ $is_added_disable }} type="submit" id="{{ $course->id }}" onclick="return confirm('カートに追加しますか?')">
                                         {{ $is_cart }}
                                     </button>
                                 </form>
