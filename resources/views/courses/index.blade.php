@@ -69,7 +69,7 @@
                     <div class="course-carousel">
                         @foreach ($courses as $course)
                             <div class="course-box-wrap">
-                                <a href=""
+                                <a href="{{ route('courses.show', $course->id) }}"
                                    class="has-popover">
                                     <div class="course-box">
                                         <!-- <div class="course-badge position best-seller">Best seller</div> -->

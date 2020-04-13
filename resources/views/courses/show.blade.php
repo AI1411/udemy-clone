@@ -297,7 +297,7 @@
                                     <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
                                     <input type="hidden" value="1" name="quantity">
                                     <button class="btn btn-add-cart" {{ $is_added_disable }} type="submit" id="{{ $course->id }}" onclick="return confirm('カートに追加しますか?')">
-                                        {{ $is_cart }}
+                                        {{ $is_cart_or_sold }}
                                     </button>
                                 </form>
                             </div>
