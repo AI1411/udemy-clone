@@ -9,6 +9,11 @@ class Course extends Model
 {
     protected $with = ['reviews', 'lessons', 'category'];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'course_user', 'id', 'course_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -75,6 +80,11 @@ class Course extends Model
         return $query;
     }
 
+    public function scopeStarRank()
+    {
+        return $this->star_sum->orderByDesc;
+    }
+
     public function getStarCountAttribute()
     {
         return $this->attributes['star_count'] = $this->reviews->avg('star');
@@ -83,5 +93,11 @@ class Course extends Model
     public function getLessonCountAttribute()
     {
         return $this->attributes['lesson_count'] = $this->lessons->count();
+    }
+
+    //reviewのstarの合計でランキングを決定
+    public function getStarSumAttribute()
+    {
+        return $this->attributes['star_sum'] = $this->reviews->sum('star');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLessonsTable extends Migration
+class CreateCourseUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateLessonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('course_user', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id');
-            $table->unsignedBigInteger('lesson_time');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateLessonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('course_user');
     }
 }

@@ -10,13 +10,6 @@
                         <p>Learn from any topic, choose from category</p>
                         <form class="" action=""
                               method="get">
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" class="form-control" name="search_course"--}}
-{{--                                       placeholder="お好きなコースを検索できます">--}}
-{{--                                <div class="input-group-append">--}}
-{{--                                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </form>
                     </div>
                 </div>
@@ -31,7 +24,6 @@
                     <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                         <i class="fas fa-bullseye float-left"></i>
                         <div class="text-box">
-{{--                            <h4>{{ $courses->count() }} online_courses</h4>--}}
                             <p>Explore A Variety Of Fresh Topics</p>
                         </div>
                     </div>

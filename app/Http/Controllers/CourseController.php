@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Course;
 use App\Models\MyCourse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -12,7 +14,9 @@ class CourseController extends Controller
     {
         $courses = Course::searchCourse()->get();
 
-        return view('courses.index', compact('courses'));
+        $course_rank = Course::all()->sortByDesc('star_sum');
+
+        return view('courses.index', compact('courses', 'course_rank'));
     }
 
     public function show(Course $course)
@@ -26,7 +30,9 @@ class CourseController extends Controller
         }
         $is_added_disable = $this->isCartAdded($course) || $this->isSold($course) ? 'disabled' : '';
 
-        return view('courses.show', compact('course', 'is_cart_or_sold', 'is_added_disable'));
+        $total_time = substr($course->lessons->sum('lesson_time'), 0, 1) . ':' . substr($course->lessons->sum('lesson_time'), 1, 2) . ':' . substr($course->lessons->sum('lesson_time'), -2);
+
+        return view('courses.show', compact('course', 'is_cart_or_sold', 'is_added_disable', 'total_time'));
     }
 
     public function isCartAdded(Course $course)

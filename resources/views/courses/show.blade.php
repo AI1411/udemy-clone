@@ -66,7 +66,7 @@
                                     {{ $course->lessons->count() }} lessons
                                 </span>
                                 <span class="total-time">
-                                    2 hours
+                                    {{ $total_time }} hours
                                 </span>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                             {{ $course->lessons->count() }} lessons
                                         </span>
                                         <span class="total-time">
-                                            12: 30 minute
+                                            {{ $total_time }} minute
                                         </span>
                                     </div>
                                 </div>
@@ -93,9 +93,9 @@
                                     <ul>
                                         @foreach($course->lessons as $lesson)
                                             <li class="lecture has-preview">
-                                                <span class="lecture-title">{{ $lesson->title }}</span>
-                                                <span class="lecture-time float-right">{{ $lesson->duration }}</span>
-                                                <!-- <span class="lecture-preview float-right" data-toggle="modal" data-target="#CoursePreviewModal">Preview</span> -->
+                                                <span class="lecture-title">{{ $lesson->name }}</span>
+                                                <span class="lecture-time float-right">{{ substr($lesson->lesson_time, 0,1) . ':' . substr($lesson->lesson_time, 1,2) . ':' . substr($lesson->lesson_time, -2) }}</span>
+                                               <span class="lecture-preview float-right" data-toggle="modal" data-target="#CoursePreviewModal">Preview</span>
                                             </li>
                                         @endforeach
                                     </ul>

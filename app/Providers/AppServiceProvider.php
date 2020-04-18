@@ -27,15 +27,35 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function ($view) {
+//        view()->composer('*', function ($view) {
+//            if (Auth::id()) {
+//                $carts = Cart::where('user_id', Auth::user()->id)->get();
+//                $carts = Cart::all();
+//                $total_price = $carts->sum('price');
+//
+//                $view->with([
+//                    'carts' => $carts,
+//                    'total_price' => $total_price
+//                    ]);
+//            }
+//            $categories = Category::all();
+//
+//            //...with this variable
+//            $view->with([
+//                'categories' => $categories,
+//            ]);
+//        });
+
+        view()->composer(['partials.navbar', 'categories.show', 'carts.index'], function ($view) {
             if (Auth::id()) {
                 $carts = Cart::where('user_id', Auth::user()->id)->get();
+//                $carts = Cart::all();
                 $total_price = $carts->sum('price');
 
                 $view->with([
                     'carts' => $carts,
                     'total_price' => $total_price
-                    ]);
+                ]);
             }
             $categories = Category::all();
 
